@@ -265,3 +265,15 @@ const kanas = ["あ", "い", "う", "え", "お"];
 const numbers = [1, 2, 3, 4, 5];
 console.log(getFirstElement(kanas));
 console.log(getFirstElement(numbers));
+// 1~Nまでの合計数の関数式
+const sumN = function (num) {
+    let total = 0;
+    for (let index = 1; index <= num; index++) {
+        total += index;
+    }
+    return total;
+};
+console.log(sumN(10));
+// 名前を受け取りHelloをつけて返すアロー関数
+const arrowGreet = (name) => "Hello " + name;
+console.log(arrowGreet("Hiro"));

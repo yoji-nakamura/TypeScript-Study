@@ -44,3 +44,11 @@ const isYes: boolean = true;
 const isNo: boolean = false;
 console.log(isYes);
 console.log(isNo);
+
+// 型推論
+let num = 7;
+let str = "Hello";
+console.log(num);
+console.log(typeof(num));
+console.log(str);
+console.log(typeof(str));

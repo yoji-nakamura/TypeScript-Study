@@ -190,3 +190,13 @@ console.log(msg1 + " " + msg2);
 const lot = 5;
 const price: string = "りんご５個の値段は" + (lot * 100) + "円です。";
 console.log(price);
+
+// 繰り返し
+// 反復可能オブジェクト
+// for (let 変数名 of 反復可能オブジェクト) {}
+const kokugo = [80, 65, 70, 100, 55];
+let sum = 0;
+for (const num of kokugo) {
+    sum += num;
+}
+console.log("国語の合計点数" + sum + "点");

@@ -44,3 +44,58 @@ const isYes: boolean = true;
 const isNo: boolean = false;
 console.log(isYes);
 console.log(isNo);
+
+// 型推論
+let num = 7;
+let str = "Hello";
+console.log(num);
+console.log(typeof(num));
+console.log(str);
+console.log(typeof(str));
+
+// 列挙型 enum
+enum Week{
+    Sunday,
+    Monday,
+    Tuesday,
+    Wednesday,
+    Thursday,
+    Friday,
+    Saturday
+}
+// 連番で０〜
+// const 変数名:列挙型名 = 列挙型名.値
+const sun: Week = Week.Sunday;
+const wed: Week = Week.Wednesday;
+console.log(sun);
+console.log(wed);
+// 数値列挙型
+enum WeekNum {
+    Sunday = 1,
+    Monday = 2,
+    Tuesday = 4,
+    Wednesday = 8,
+    Thursday = 16,
+    Friday = 32,
+    Saturday = 64
+}
+const sunnum: WeekNum = WeekNum.Sunday;
+console.log(sunnum);
+// 文字列列挙型
+enum WeekString {
+    Sunday = "Sun",
+    Monday = "Mon",
+    Tuesday = "Tue",
+    Wednesday = "Wed",
+    Thursday = "Thu",
+    Friday = "Fri",
+    Saturday = "Sat"
+}
+const sunstr: WeekString = WeekString.Sunday;
+console.log(sunstr);
+
+// タプル型
+const userdata: [string, number, number] = ["Hiro", 26, 165]
+console.log(userdata[0]);
+console.log(userdata[1]);
+console.log(userdata[2]);

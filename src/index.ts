@@ -93,3 +93,9 @@ enum WeekString {
 }
 const sunstr: WeekString = WeekString.Sunday;
 console.log(sunstr);
+
+// タプル型
+const userdata: [string, number, number] = ["Hiro", 26, 165]
+console.log(userdata[0]);
+console.log(userdata[1]);
+console.log(userdata[2]);

@@ -86,3 +86,8 @@ var WeekString;
 })(WeekString || (WeekString = {}));
 const sunstr = WeekString.Sunday;
 console.log(sunstr);
+// タプル型
+const userdata = ["Hiro", 26, 165];
+console.log(userdata[0]);
+console.log(userdata[1]);
+console.log(userdata[2]);

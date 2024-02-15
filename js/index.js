@@ -175,3 +175,93 @@ for (const num of kokugo) {
     sum += num;
 }
 console.log("国語の合計点数" + sum + "点");
+// 関数
+// function 関数名(引数: 型１):戻り値の型 {}
+// 三角形の面積
+function getTriArea() {
+    let area = 0;
+    let base = 4;
+    let height = 3;
+    area = base * height / 2;
+    console.log("面積" + area);
+}
+getTriArea();
+// 三角形の面積　引数あり
+function getTriAreaParam(base, height) {
+    let area = 0;
+    area = base * height / 2;
+    console.log("面積" + area);
+}
+const base = 4;
+const height = 3;
+getTriAreaParam(base, height);
+// デフォルト引数
+// 引数:データ型 = デフォルト値
+function greet(name, greeting = "Hello") {
+    console.log(`${greeting}、${name}`);
+}
+greet("Hiro");
+// 引数がない時にデフォルトのが使用される。
+greet("Hiro", "こんにちは");
+// 可変長引数
+// ...引数:データ型[]
+function sumTotal(...nums) {
+    let total = 0;
+    for (const num of nums) {
+        total += num;
+    }
+    console.log("合計：" + total);
+}
+sumTotal(1, 2, 3, 4);
+sumTotal(5, 6);
+// 戻り値のある関数
+// return 呼び出し元に返す値;
+function returnSumTotal(...nums) {
+    let total = 0;
+    for (const num of nums) {
+        total += num;
+    }
+    return total;
+}
+const returnTotal = returnSumTotal(7, 8);
+console.log(returnTotal);
+// 関数式
+// 匿名関数・無名関数とも呼ぶ式なので変数に代入できる。
+// 変数 = function(引数):戻り値の型{}
+// インクリメントを行う関数式
+const increment = function (num) {
+    return num + 1;
+};
+console.log(increment(1));
+// 関数に関数式を渡す
+// 関数の引数として渡される関数をコールバック関数と呼ぶ
+function applyOperation(num, action) {
+    console.log(action(num));
+}
+const incrementFunc = function (num) {
+    return num + 1;
+};
+const decrementFunc = function (num) {
+    return num - 1;
+};
+applyOperation(5, incrementFunc);
+applyOperation(5, decrementFunc);
+// アロー関数
+// const 変数 = (引数リスト):戻り値のデータ型 => {
+//     return 戻り値;
+// }
+const arrowIncrement = (num) => {
+    return num + 1;
+};
+console.log(arrowIncrement(3));
+const arrowDecrement = (num) => num - 1;
+console.log(arrowDecrement(3));
+// ジェネリクス
+// function 関数名<T>(引数: T): T {}
+function getFirstElement(array) {
+    return array[0];
+}
+const kanas = ["あ", "い", "う", "え", "お"];
+const numbers = [1, 2, 3, 4, 5];
+console.log(getFirstElement(kanas));
+console.log(getFirstElement(numbers));

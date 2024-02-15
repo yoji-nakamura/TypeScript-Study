@@ -91,3 +91,48 @@ const userdata = ["Hiro", 26, 165];
 console.log(userdata[0]);
 console.log(userdata[1]);
 console.log(userdata[2]);
+// 配列
+// const(let) 変数名:データ型[] = 配列リテラル;
+const math = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+console.log(math[0]);
+console.log(math[1]);
+console.log(math[2]);
+// 代入
+const username = ["名無し", "名無し"];
+username[0] = "Hiro";
+username[1] = "Hide";
+console.log(username);
+// 配列追加 末尾
+username.push("Take");
+console.log(username);
+// 配列追加 先頭
+username.unshift("Bill");
+console.log(username);
+// 一部取り出し
+console.log(username.slice(1));
+console.log(username.slice(1, 3));
+// 多次元配列
+let shoesBox = [
+    ["A", "B", "C"],
+    ["D", "E", "F"],
+];
+console.log(shoesBox);
+console.log(shoesBox[0]);
+console.log(shoesBox[0][1]);
+// ジャグ配列
+let numArray = [
+    [1, 2, 3],
+    [4, 5],
+    [6, 7, 8],
+];
+console.log(numArray);
+// 連想配列
+// const 連想配列名:{[key:キーのデータ型]:要素のデータ型}
+let fruits = {
+    "Apple": "りんご",
+    "Banana": "バナナ",
+    "Orange": "オレンジ"
+};
+console.log(fruits);
+console.log(fruits["Apple"]);
+// その他の操作はググろう

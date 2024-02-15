@@ -151,3 +151,42 @@ console.log(fruits);
 console.log(fruits["Apple"]);
 
 // その他の操作はググろう
+
+// 演算子は大体同じ
+
+// 前置インクリメント
+let x = 5;
+console.log(++x);
+console.log(x);
+// インクリメントされてから出力
+
+// 後置インクリメント
+let y = 5;
+console.log(y++);
+console.log(y);
+// 出力されてからインクリメント
+
+// 代入演算子
+let x1 = 0;
+x1 += 3;
+console.log(x1);
+
+// ビットシフト演算子に関しては使いどきがわからん
+
+// 比較演算子
+// === !== < > <= >=
+
+// 論理演算子
+// AND &&
+// OR ||
+// NOT !
+
+// 文字列連結
+// 値1 + 値2
+const msg1 = "Hello";
+const msg2 = "Hiro";
+console.log(msg1 + " " + msg2);
+
+const lot = 5;
+const price: string = "りんご５個の値段は" + (lot * 100) + "円です。";
+console.log(price);

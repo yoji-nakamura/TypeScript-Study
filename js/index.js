@@ -378,3 +378,59 @@ class House2 {
     }
 }
 const yellowHouse = new House2("黄色", 1, "東京");
+// 継承
+// 親クラス・基本クラス
+class Home {
+    constructor() {
+        this.color = "白";
+        this.rooms = 1;
+    }
+    activateSecurity(isOn) {
+        if (isOn) {
+            console.log("セキュリティを作動しました");
+        }
+        else {
+            console.log("セキュリティを停止しました");
+        }
+    }
+}
+// 派生クラス
+class GarageHome extends Home {
+    constructor() {
+        super(...arguments);
+        // 車庫の有無
+        this.hasGarage = false;
+    }
+    // 開閉メソッド
+    openGarage(isOn) {
+        if (this.hasGarage) {
+            if (isOn) {
+                console.log("車庫を開けました");
+            }
+            else {
+                console.log("車庫を閉めました");
+            }
+        }
+        else {
+            console.log("車庫はありません");
+        }
+    }
+    // オーバーライド
+    activateSecurity(isOn) {
+        if (isOn) {
+            console.log("セキュリティを作動しました");
+            console.log("ガレージのセキュリティを作動しました");
+        }
+        else {
+            console.log("セキュリティを停止しました");
+            console.log("ガレージのセキュリティを停止しました");
+        }
+    }
+}
+const gh = new GarageHome();
+gh.hasGarage = true;
+gh.openGarage(true);
+gh.openGarage(false);
+// オーバーライド
+gh.activateSecurity(true);
+gh.activateSecurity(false);

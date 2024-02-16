@@ -419,3 +419,51 @@ class House2 {
     }
 }
 const yellowHouse = new House2("黄色", 1, "東京");
+
+// 継承
+// 親クラス・基本クラス
+class Home {
+    public color: string = "白";
+    public rooms: number = 1;
+    public activateSecurity(isOn: boolean) {
+        if (isOn) {
+            console.log("セキュリティを作動しました");
+        } else {
+            console.log("セキュリティを停止しました");
+        }
+    }
+}
+// 派生クラス
+class GarageHome extends Home{
+    // 車庫の有無
+    public hasGarage: boolean = false;
+    // 開閉メソッド
+    public openGarage(isOn: boolean) {
+        if (this.hasGarage) {
+            if (isOn) {
+                console.log("車庫を開けました");
+            } else {
+                console.log("車庫を閉めました");
+            }
+        } else {
+            console.log("車庫はありません");
+        }
+    }
+    // オーバーライド
+    public activateSecurity(isOn: boolean): void {
+        if (isOn) {
+            console.log("セキュリティを作動しました");
+            console.log("ガレージのセキュリティを作動しました");
+        } else {
+            console.log("セキュリティを停止しました");
+            console.log("ガレージのセキュリティを停止しました");
+        }
+    }
+}
+const gh = new GarageHome();
+gh.hasGarage = true;
+gh.openGarage(true);
+gh.openGarage(false);
+// オーバーライド
+gh.activateSecurity(true);
+gh.activateSecurity(false);

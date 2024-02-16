@@ -277,3 +277,160 @@ console.log(sumN(10));
 // 名前を受け取りHelloをつけて返すアロー関数
 const arrowGreet = (name) => "Hello " + name;
 console.log(arrowGreet("Hiro"));
+// クラス
+// class クラス名 {
+//     プロパティの定義
+//     メソッドの
+// }
+// 家をクラスとして定義
+class House {
+    // コンストラクタ
+    // 自動的に呼び出される
+    constructor(color, rooms) {
+        // 初期化処理
+        this._color = color;
+        this._rooms = rooms;
+        this.address = "東京";
+    }
+    // セッター
+    // set 任意の名前(引数: データ型) {
+    //     処理
+    //     プロパティに値を記憶する処理
+    // }
+    set rooms(count) {
+        if (count < 0) {
+            this._rooms = 0;
+        }
+        else {
+            this._rooms = count;
+        }
+    }
+    // ゲッター
+    // get 任意の名前() : データ型 {
+    //     return 戻り値;
+    // }
+    get rooms() {
+        return this._rooms;
+    }
+    set color(color) {
+        this._color = color;
+    }
+    get color() {
+        return this._color;
+    }
+    // メソッド
+    // メソッド名(引数1: 型1, 引数2: 型2): 戻り値の型{
+    //     return 戻り値
+    // }
+    activateSecurity(isOn) {
+        if (isOn) {
+            console.log("セキュリティを作動しました");
+        }
+        else {
+            console.log("セキュリティを停止しました");
+        }
+    }
+    openDoor(isOn) {
+        if (isOn) {
+            console.log("ドアを開けました。");
+        }
+        else {
+            console.log("ドアを閉めました。");
+        }
+    }
+}
+// インスタンス化
+// const 変数名 = new クラス名();
+const redHouse = new House("赤", 2);
+// プロパティの使用
+// redHouse.color = "赤";
+// redHouse.rooms = 3;
+// console.log(redHouse.color);
+// console.log(redHouse.rooms);
+redHouse.rooms = -3;
+console.log(redHouse.rooms);
+redHouse.color = "赤";
+console.log(redHouse.color);
+const blueHouse = new House("青", 2);
+blueHouse.activateSecurity(true);
+blueHouse.activateSecurity(false);
+blueHouse.openDoor(true);
+blueHouse.openDoor(false);
+console.log("コンストラクタ");
+const greenHouse = new House("緑", 3);
+console.log(greenHouse.color);
+console.log(greenHouse.rooms);
+// アクセス修飾子
+class House2 {
+    constructor(color, rooms, address) {
+        this.color = color;
+        this.rooms = rooms;
+        this.address = address;
+    }
+    displayColor() {
+        console.log("この家は" + this.color + "です");
+    }
+    countRooms() {
+        return this.rooms;
+    }
+    getAddress() {
+        return this.address;
+    }
+}
+const yellowHouse = new House2("黄色", 1, "東京");
+// 継承
+// 親クラス・基本クラス
+class Home {
+    constructor() {
+        this.color = "白";
+        this.rooms = 1;
+    }
+    activateSecurity(isOn) {
+        if (isOn) {
+            console.log("セキュリティを作動しました");
+        }
+        else {
+            console.log("セキュリティを停止しました");
+        }
+    }
+}
+// 派生クラス
+class GarageHome extends Home {
+    constructor() {
+        super(...arguments);
+        // 車庫の有無
+        this.hasGarage = false;
+    }
+    // 開閉メソッド
+    openGarage(isOn) {
+        if (this.hasGarage) {
+            if (isOn) {
+                console.log("車庫を開けました");
+            }
+            else {
+                console.log("車庫を閉めました");
+            }
+        }
+        else {
+            console.log("車庫はありません");
+        }
+    }
+    // オーバーライド
+    activateSecurity(isOn) {
+        if (isOn) {
+            console.log("セキュリティを作動しました");
+            console.log("ガレージのセキュリティを作動しました");
+        }
+        else {
+            console.log("セキュリティを停止しました");
+            console.log("ガレージのセキュリティを停止しました");
+        }
+    }
+}
+const gh = new GarageHome();
+gh.hasGarage = true;
+gh.openGarage(true);
+gh.openGarage(false);
+// オーバーライド
+gh.activateSecurity(true);
+gh.activateSecurity(false);

@@ -310,3 +310,112 @@ console.log(sumN(10));
 // 名前を受け取りHelloをつけて返すアロー関数
 const arrowGreet = (name: string): string => "Hello " + name;
 console.log(arrowGreet("Hiro"));
+
+// クラス
+// class クラス名 {
+//     プロパティの定義
+//     メソッドの
+// }
+// 家をクラスとして定義
+class House {
+    // プロパティ
+    // プロパティ名: データ型 = 初期値;
+    private _color: string;
+    // rooms: number = 0;
+    private _rooms: number;
+    address: string;
+    // コンストラクタ
+    // 自動的に呼び出される
+    constructor(color:string,rooms:number) {
+        // 初期化処理
+        this._color = color;
+        this._rooms = rooms;
+        this.address = "東京";
+    }
+    // セッター
+    // set 任意の名前(引数: データ型) {
+    //     処理
+    //     プロパティに値を記憶する処理
+    // }
+    set rooms(count: number) {
+        if (count < 0) {
+            this._rooms = 0;
+        } else {
+            this._rooms = count;
+        }
+    }
+    // ゲッター
+    // get 任意の名前() : データ型 {
+    //     return 戻り値;
+    // }
+    get rooms(): number{
+        return this._rooms;
+    }
+    set color(color: string) {
+        this._color = color;
+    }
+    get color(): string{
+        return this._color;
+    }
+    // メソッド
+    // メソッド名(引数1: 型1, 引数2: 型2): 戻り値の型{
+    //     return 戻り値
+    // }
+    activateSecurity(isOn: boolean) {
+        if (isOn) {
+            console.log("セキュリティを作動しました");
+        } else {
+            console.log("セキュリティを停止しました");
+        }
+    }
+    
+    openDoor(isOn: boolean) {
+        if (isOn) {
+            console.log("ドアを開けました。");
+        } else {
+            console.log("ドアを閉めました。");
+        }
+    }
+}
+// インスタンス化
+// const 変数名 = new クラス名();
+const redHouse = new House("赤",2);
+// プロパティの使用
+// redHouse.color = "赤";
+// redHouse.rooms = 3;
+// console.log(redHouse.color);
+// console.log(redHouse.rooms);
+redHouse.rooms = -3;
+console.log(redHouse.rooms);
+redHouse.color = "赤";
+console.log(redHouse.color);
+const blueHouse = new House("青",2);
+blueHouse.activateSecurity(true);
+blueHouse.activateSecurity(false);
+blueHouse.openDoor(true);
+blueHouse.openDoor(false);
+console.log("コンストラクタ");
+const greenHouse = new House("緑",3);
+console.log(greenHouse.color);
+console.log(greenHouse.rooms);
+// アクセス修飾子
+class House2 {
+    public color: string;
+    private rooms: number;
+    protected address: string;
+    constructor(color:string,rooms:number,address:string) {
+        this.color = color;
+        this.rooms = rooms;
+        this.address = address;
+    }
+    public displayColor(): void{
+        console.log("この家は" + this.color + "です");
+    }
+    private countRooms(): number{
+        return this.rooms;
+    }
+    protected getAddress(): string{
+        return this.address;
+    }
+}
+const yellowHouse = new House2("黄色", 1, "東京");

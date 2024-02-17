@@ -465,5 +465,31 @@ gh.hasGarage = true;
 gh.openGarage(true);
 gh.openGarage(false);
 // オーバーライド
+console.log("オーバーライド");
 gh.activateSecurity(true);
 gh.activateSecurity(false);
+// オーバーロード
+class Home2{
+    activateSecurity(isOn: boolean): void;
+    activateSecurity(isOn: boolean, hasGarage: boolean): void;
+
+    activateSecurity(isOn: boolean, hasGarage?: boolean): void{
+        if (isOn) {
+            console.log("セキュリティを作動させました。");
+            if (hasGarage) {
+                console.log("ガレージのセキュリティを作動させました。");
+            }
+        } else {
+            console.log("セキュリティを停止させました。");
+            if (hasGarage) {
+                console.log("ガレージのセキュリティを停止させました。");
+            }
+        }
+    }
+}
+const myHome = new Home2();
+console.log("オーバーロード");
+
+myHome.activateSecurity(false);
+myHome.activateSecurity(true);
+myHome.activateSecurity(true, true);

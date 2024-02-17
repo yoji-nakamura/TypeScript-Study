@@ -458,3 +458,64 @@ myHome.activateSecurity(false);
 myHome.activateSecurity(true);
 myHome.activateSecurity(true, true);
 // 抽象クラス
+class Zukei {
+}
+class Triangle extends Zukei {
+    // Triangle専用の処理が行える
+    Draw() {
+        console.log("三角形を描画します。");
+    }
+}
+class Hexagon extends Zukei {
+    Draw() {
+        console.log("四角形を描画します。");
+    }
+}
+const tri = new Triangle();
+tri.Draw();
+const hex = new Hexagon();
+hex.Draw();
+class MusicPlayer {
+    constructor() {
+        this.name = "sample";
+    }
+    play() {
+        console.log(this.name + "を再生しました");
+    }
+    stop() {
+        console.log(this.name + "を停止しました");
+    }
+}
+const mp = new MusicPlayer();
+mp.play();
+mp.stop();
+class VideoPlayer {
+    constructor() {
+        this.videoName = "Sample Video";
+        this.name = "sample";
+    }
+    playVideo() {
+        console.log(this.videoName + "を再生しました");
+    }
+    stopVideo() {
+        console.log(this.videoName + "を停止しました");
+    }
+    play() {
+        console.log(this.name + "を再生しました");
+    }
+    stop() {
+        console.log(this.name + "を停止しました");
+    }
+}
+const vp = new VideoPlayer();
+vp.playVideo();
+vp.stopVideo();
+vp.play();
+vp.stop();
+class TelephoneCall {
+    call() {
+        console.log("電話を鳴らします。");
+    }
+}
+const tell = new TelephoneCall();
+tell.call();

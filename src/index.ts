@@ -465,5 +465,125 @@ gh.hasGarage = true;
 gh.openGarage(true);
 gh.openGarage(false);
 // オーバーライド
+console.log("オーバーライド");
 gh.activateSecurity(true);
 gh.activateSecurity(false);
+// オーバーロード
+class Home2{
+    activateSecurity(isOn: boolean): void;
+    activateSecurity(isOn: boolean, hasGarage: boolean): void;
+
+    activateSecurity(isOn: boolean, hasGarage?: boolean): void{
+        if (isOn) {
+            console.log("セキュリティを作動させました。");
+            if (hasGarage) {
+                console.log("ガレージのセキュリティを作動させました。");
+            }
+        } else {
+            console.log("セキュリティを停止させました。");
+            if (hasGarage) {
+                console.log("ガレージのセキュリティを停止させました。");
+            }
+        }
+    }
+}
+const myHome = new Home2();
+console.log("オーバーロード");
+
+myHome.activateSecurity(false);
+myHome.activateSecurity(true);
+myHome.activateSecurity(true, true);
+
+// 抽象クラス
+abstract class Zukei {
+    abstract Draw(): void;
+}
+class Triangle extends Zukei {
+    // Triangle専用の処理が行える
+    Draw(): void {
+        console.log("三角形を描画します。");
+        
+    }
+}
+class Hexagon extends Zukei {
+    Draw(): void {
+        console.log("四角形を描画します。");
+        
+    }
+}
+const tri = new Triangle();
+tri.Draw();
+const hex = new Hexagon();
+hex.Draw();
+
+// インターフェース
+// 定義
+// interface インターフェース名{
+//     プロパティ: データ型;
+//     メソッド名(引数): データー型;
+// }
+// 実装
+// class クラス名 implements インターフェース名 {
+//     インターフェースで定義したプロパティやメソッド
+// }
+interface PlaySound{
+    name: string;
+    play(): void;
+    stop(): void;
+}
+class MusicPlayer implements PlaySound{
+    name: string = "sample";
+    play(): void {
+        console.log(this.name + "を再生しました");
+    }
+    stop(): void {
+        console.log(this.name + "を停止しました");
+    }
+}
+const mp = new MusicPlayer();
+mp.play();
+mp.stop();
+// インターフェースの継承
+// interface インターフェース名 extends 継承するインターフェース名{
+//     プロパティ: データ型;
+//     メソッド名(引数): データー型;
+// }
+// PlaySoundを継承してビデオ再生機能を持たせる。
+interface PlayVideo extends PlaySound{
+    videoName: string;
+    playVideo(): void;
+    stopVideo(): void;
+}
+class VideoPlayer implements PlayVideo {
+    videoName: string = "Sample Video";
+    playVideo(): void {
+        console.log(this.videoName + "を再生しました");
+    }
+    stopVideo(): void {
+        console.log(this.videoName + "を停止しました");
+    }
+    name: string = "sample";
+    play(): void {
+        console.log(this.name + "を再生しました");
+    }
+    stop(): void {
+        console.log(this.name + "を停止しました");
+    }
+}
+const vp = new VideoPlayer();
+vp.playVideo();
+vp.stopVideo();
+vp.play();
+vp.stop();
+// Telephoneというインターフェースを定義してメソッドcallを定義する
+interface Telephone{
+    call(): void;
+}
+class TelephoneCall implements Telephone {
+    call(): void {
+        console.log("電話を鳴らします。");
+        
+    }
+}
+const tell = new TelephoneCall();
+tell.call();

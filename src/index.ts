@@ -587,3 +587,35 @@ class TelephoneCall implements Telephone {
 }
 const tell = new TelephoneCall();
 tell.call();
+
+// 例外処理
+// try {
+//     例外が発生する可能性があるコード
+// } catch {
+//     例外を処理するコード
+// } finally { 
+//     最後の必ず実行する処理
+// }
+try {
+    const x = 10;
+    const y = 0;
+    if (y === 0) {
+        throw new Error("ゼロで割り算はできません。");
+    }
+    // 例外が発生するので実行はされない
+    const ans = x / y;
+    console.log(ans);
+} catch (err) {
+    console.log(err);
+    // 発生した例外がどのErrorオブジェクトか調べる
+    // 変数 instanceof オブジェクト
+    if (err instanceof SyntaxError) {
+        console.log("構文エラーが発生しました");
+    } else if (err instanceof RangeError) {
+        console.log("範囲外の操作が行われました。");
+    } else {
+        console.log("その他の例外が発生しました。");
+    }
+} finally {
+    console.log("プログラムを終了します。");
+}
